@@ -12,10 +12,15 @@
 <body>
 	
 	<h1>Gestion Distribución</h1>
-	<div>
-		<ul id="nombres">
-		<c:forEach items="${listaNombres}" var="nombre">
-			<li class="nombre">${nombre}</li>
+	<div id="listas">
+		<ul>
+		<c:forEach items="${listaNombres1}" var="nombre1">
+			<li class="nombre1">${nombre1}</li>
+		</c:forEach>
+		</ul>
+		<ul>
+		<c:forEach items="${listaFotos1}" var="foto1">
+			<li class="foto1">${foto1}</li>
 		</c:forEach>
 		</ul>
 	</div>

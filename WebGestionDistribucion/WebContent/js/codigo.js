@@ -1,14 +1,22 @@
-var nombFoto=new Array(14); //Variable glogal para los nombres de las fotos
-var total=nombFoto.length; //Longitud del array de nombres de fotos
+
+window.addEventListener("load",programa);
 var i=-1; //variable global para el indice de los arrays
 // Array con los títulos de las fotos
-var descripcion=document.getElementsByClassName('nombre');
+var descripcion=document.getElementsByClassName('nombre1');
+var nombFoto1=document.getElementsByClassName('foto1');
+ //Longitud del array de nombres de fotos
+var total=100;
+
+//var nombFoto1=new Array(total); //Variable glogal para los nombres de las fotos
 //elecuta la función programa cuando la página está cargada
-window.addEventListener("load",programa);
+
 
 function iniciaTodo(){
+	
+	total=nombFoto1.length;
+	console.log(total);
     for (f=0;f<total;f++){
-        nombFoto[f]="images/alhambra("+f+").jpg"; // asigna los nombres de las fotos al array nombFoto
+        //nombFoto[f]="images/alhambra("+f+").jpg"; // asigna los nombres de las fotos al array nombFoto
         botones.innerHTML+='<input type="radio" name="boton" id="rad">'; //Pinta los radio buttons
      }
      //asigna el evento click a cada radio button llamando a la función comprueba
@@ -68,11 +76,12 @@ function programa(){
 }
 //recibe el indice de la foto que se va a cargar en el parámetro fo
 function ponFoto(fo){
-    imagen.src=nombFoto[fo]; //asigna al src de la imagen principal el nombre correspondiente del array de los nombres de las fotos
+    imagen.src="fotos/"+nombFoto1[fo].textContent+".jpg"; //asigna al src de la imagen principal el nombre correspondiente del array de los nombres de las fotos
+    console.log("fotos/"+nombFoto1[fo].textContent+".jpg");
     //asigna al src de la imagen miniatura izquierda el nombre de la imagen anterior a la principal controlando que no se salga del array
-    imagI.src=nombFoto[fo-1<0?total-1:fo-1]; 
+    imagI.src="fotos/"+nombFoto1[fo-1<0?total-1:fo-1]+".jpg"; 
     //Igual con la anterior para la miniatura derecha
-    imagD.src=nombFoto[fo+1===total?0:fo+1];
+    imagD.src="fotos/"+nombFoto1[fo+1===total?0:fo+1]+".jpg";
     //activa el radiobutton del array con el mismo indice que el array de nombres de imagen
     rad[fo].checked=true;
     //cambia el texto del elemento título con el nombre del array de descripciones con el mismo índice

@@ -12,7 +12,7 @@ public class GestorArticulo {
 		da=new DaoArticulo();
 	}
 	
-	public List<Articulo> listado(String filtroNombre){
-		return da.listado(filtroNombre);
+	public List<Articulo> listado(int familia){
+		return da.listado(familia);
 	}
 }

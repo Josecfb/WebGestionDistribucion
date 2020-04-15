@@ -26,12 +26,12 @@ public class Principal extends HttpServlet {
 		GestorArticulo ga=new GestorArticulo();
 		List<String> nombres=new ArrayList<String>();
 		List<String> fotos=new ArrayList<String>();
-		for (Articulo art:ga.listado("")) {
+		for (Articulo art:ga.listado(1)) {
 			nombres.add(art.getNombre());
 			fotos.add(String.valueOf(art.getCod()));
 		}
-		request.setAttribute("listaNombres",nombres);
-		request.setAttribute("listaFotos", fotos);
+		request.setAttribute("listaNombres1",nombres);
+		request.setAttribute("listaFotos1", fotos);
 		request.setAttribute("largo", nombres.size());
 		request.getRequestDispatcher("principal.jsp").forward(request, response);
 	}
