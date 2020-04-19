@@ -19,14 +19,10 @@ function iniciaTodo(){
 
 	for (l=0;l<total;l++){
 		i[l]=-1; 
-		console.log(l);
 		articulo[l]=document.getElementsByClassName('nombre'+(l+1));
 		totales[l]=articulo[l].length;
 		for (b=0;b<totales[l];b++){
-			botones[l].innerHTML+='<input type="radio" class="boton" name="boton'+l+'" id="rad">';
-			console.log('<input type="radio" class="boton" id="rad">');
-			console.log(l);
-			
+			botones[l].innerHTML+='<input type="radio" class="boton" name="boton'+l+'" id="rad'+b+'">';
 		}
 		radios[l]=document.getElementsByName('boton'+l);
 		
@@ -37,7 +33,6 @@ function avanza(){
 	for (l=0;l<total;l++){
 		i[l]++;
 		if (i[l]==totales[l]) i[l]=0;
-		console.log(l+" "+i[l]);
 		ponFoto(i[l],l);
 	}
 }
@@ -45,13 +40,11 @@ function avanza(){
 function programa(){
     iniciaTodo();
     avanza();
-    setInterval(avanza,40000);
+    setInterval(avanza,4000);
 }
 
 function ponFoto(fo,l){
-	
-	console.log(l+" "+fo+" "+articulo[l][fo].textContent);
     imagen[l].src="fotos/"+articulo[l][fo].textContent.split(";")[1]+".jpg"; 
     titulo[l].innerHTML=articulo[l][fo].textContent.split(";")[0];
-    radios[l][fo].ckecked=true;
+    radios[l][fo].checked=true;
 }

@@ -10,7 +10,13 @@
 <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
 </head>
 <body>
-	
+	<nav id="menu">
+    	  <button class="botonactivo">Home</button>
+        <a href="ControladorListadoProductos"><button class="botonm">Listado</button></a>
+        <a href="alta.jsp"><button class="botonm">Altas</button></a>
+        <a href="buscar.jsp"><button class="botonm">Modificar</button></a>
+        <a href="eliminar.jsp"><button class="botonm">Eliminar</button></a>
+	</nav>
 	<h1>Gestion Distribución</h1>
 	<div id="listas">
 		<ul>
