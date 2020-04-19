@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Articulo;
+import model.Familia;
 import model.negocio.GestorArticulo;
 
 
@@ -24,15 +25,14 @@ public class Principal extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		GestorArticulo ga=new GestorArticulo();
-		List<String> nombres=new ArrayList<String>();
-		List<String> fotos=new ArrayList<String>();
-		for (Articulo art:ga.listado(1)) {
-			nombres.add(art.getNombre());
-			fotos.add(String.valueOf(art.getCod()));
-		}
-		request.setAttribute("listaNombres1",nombres);
-		request.setAttribute("listaFotos1", fotos);
-		request.setAttribute("largo", nombres.size());
+		List<Articulo> artis=new ArrayList<Articulo>();
+		List<Familia> fami = new ArrayList<Familia>();
+		for (Familia familia:ga.listaFamilias())
+			fami.add(familia);
+		for (Articulo art:ga.listaArticulos()) 
+			artis.add(art);
+		request.setAttribute("familias", fami);
+		request.setAttribute("articulos",artis);
 		request.getRequestDispatcher("principal.jsp").forward(request, response);
 	}
 

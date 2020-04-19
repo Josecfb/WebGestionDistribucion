@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Gestión distribución</title>
 <script src="js/codigo.js"></script>
 <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
 </head>
@@ -14,22 +14,19 @@
 	<h1>Gestion Distribución</h1>
 	<div id="listas">
 		<ul>
-		<c:forEach items="${listaNombres1}" var="nombre1">
-			<li class="nombre1">${nombre1}</li>
-		</c:forEach>
-		</ul>
-		<ul>
-		<c:forEach items="${listaFotos1}" var="foto1">
-			<li class="foto1">${foto1}</li>
+		<c:forEach items="${articulos}" var="articulo">
+			<li class="nombre${articulo.familiaBean.num}">${articulo.nombre};${articulo.cod}</li>
 		</c:forEach>
 		</ul>
 	</div>
-    <div id="contenedor">
-        <p id="titulo"></p>
-        <img id="imagen">
-        <div id="botones"></div>
-        <div class="direccion" id="izq"><img id="imagI" class="mini"></div>
-        <div class="direccion" id="der"><img id="imagD" class="mini"></div>
-    </div>
+
+	<c:forEach items="${familias}" var="familia">
+		<h1>${familia.nombre}</h1>
+	    <div class="contenedor">
+	        <p class="titulo"></p>
+	        <img class="imagen">
+	        <div class="botones"></div>
+	    </div>
+	</c:forEach>
 </body>
 </html>
