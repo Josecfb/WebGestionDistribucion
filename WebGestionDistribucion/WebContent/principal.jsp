@@ -4,20 +4,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Gestión distribución</title>
-<script src="js/codigo.js"></script>
+<script src="js/principal.js"></script>
 <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
 </head>
 <body>
 	<nav id="menu">
     	  <button class="botonactivo">Home</button>
-        <a href="ControladorListadoProductos"><button class="botonm">Listado</button></a>
-        <a href="alta.jsp"><button class="botonm">Altas</button></a>
+        <a href="ControladorListadoProductos"><button class="botonm">Pedidos</button></a>
+        <a href="registro.jsp"><button class="botonm">Registro</button></a>
         <a href="buscar.jsp"><button class="botonm">Modificar</button></a>
         <a href="eliminar.jsp"><button class="botonm">Eliminar</button></a>
 	</nav>
 	<h1>Gestion Distribución</h1>
+	<p id="mensaje">${mensaje}</p>
 	<div id="listas">
 		<ul>
 		<c:forEach items="${articulos}" var="articulo">
