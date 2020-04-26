@@ -32,17 +32,18 @@ public class AltaCliente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Cliente cli=new Cliente();
 		boolean[] caso=new boolean[12];
-		cli.setNombre(request.getParameter("nombre"));
-		cli.setApellidos(request.getParameter("apellidos"));
-		cli.setNifCif(request.getParameter("nif"));
-		cli.setEmail(request.getParameter("email"));
+		request.setCharacterEncoding("UTF-8");
+		cli.setNombre(request.getParameter("nombre").trim());
+		cli.setApellidos(request.getParameter("apellidos").trim());
+		cli.setNifCif(request.getParameter("nif").trim());
+		cli.setEmail(request.getParameter("email").trim());
 		String pass1=request.getParameter("pass1");
 		String pass2=request.getParameter("pass2");
-		cli.setDireccion(request.getParameter("direccion"));
-		cli.setCodPost(request.getParameter("codpost"));
-		cli.setPoblacion(request.getParameter("poblacion"));
-		cli.setTelefonoFijo(request.getParameter("fijo"));
-		cli.setTelefonoMovil(request.getParameter("movil"));
+		cli.setDireccion(request.getParameter("direccion").trim());
+		cli.setCodPost(request.getParameter("codpost").trim());
+		cli.setPoblacion(request.getParameter("poblacion").trim());
+		cli.setTelefonoFijo(request.getParameter("fijo").trim());
+		cli.setTelefonoMovil(request.getParameter("movil").trim());
 		cli.setTipo(0);
 		caso=gc.nuevo(cli,pass1,pass2);
 		String[] error= {"El nombre"+ENBLANCO,"Los apellidos"+ENBLANCO,"El nif"+ENBLANCO,"El Email"+ENBLANCO,"La direccion"+ENBLANCO,
@@ -54,6 +55,7 @@ public class AltaCliente extends HttpServlet {
 		if (caso[11]) {
 			request.setAttribute("mensaje", "Enhorabuena usted se ha registrado correctamente correctamente");
 			request.getRequestDispatcher("Principal").forward(request, response);
+			
 		}
 		else {
 			request.setAttribute("error", error); //pasa el array con los mensajes de los errores
@@ -64,5 +66,5 @@ public class AltaCliente extends HttpServlet {
 			System.out.println(i+" "+caso[i]);
 		System.out.println("caso 11 "+caso[11]);
 	}
-
+	
 }

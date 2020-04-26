@@ -26,14 +26,16 @@
 		</c:forEach>
 		</ul>
 	</div>
-
+	<div id="principal">
 	<c:forEach items="${familias}" var="familia">
-		<h1>${familia.nombre}</h1>
+		
 	    <div class="contenedor">
+	    	<h1>${familia.nombre}</h1>
 	        <p class="titulo"></p>
 	        <img class="imagen">
 	        <div class="botones"></div>
 	    </div>
 	</c:forEach>
+	</div>
 </body>
 </html>

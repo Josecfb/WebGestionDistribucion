@@ -23,6 +23,7 @@ function iniciaTodo(){
 		for (b=0;b<totales[l];b++){
 			radios[l][b].addEventListener("click",comprueba); 
 		}
+		
 	}
 }
 

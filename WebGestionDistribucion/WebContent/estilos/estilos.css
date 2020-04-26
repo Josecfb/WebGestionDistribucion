@@ -44,7 +44,8 @@ td{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	margin:auto;
-	width:950px;
+	text-align:center;
+	width:90%;
 	margin-bottom: 10px;
 	background: -webkit-linear-gradient(top, #cedce7 0%,#a1bac4 100%);
 }
@@ -53,7 +54,7 @@ td{
 	font-size: 14px;
 	font-weight: bold;
 	border-radius:20px;
-	width:181px;
+	width:19%;
 	box-shadow: 5px 5px 5px #2A3F55;
 	background: -webkit-linear-gradient(top, #5555aa 0%,#a1baff 100%);
 	margin:2px;
@@ -64,7 +65,7 @@ td{
 	font-size: 14px;
 	font-weight: bold;
 	border-radius:20px;
-	width:181px;
+	width:19%;
 	background:#500097;
 	box-shadow: none;
 	color: #FFFFFF;
@@ -107,8 +108,9 @@ td{
  	margin:auto;
  }
 .contenedor{
+	display:inline-block;
     position: relative;
-    margin: auto;
+    margin: 1%;
     width: 40%;
     text-align: center;
     transition: all 0.5s linear;
@@ -121,12 +123,17 @@ td{
 }
 .titulo{
     position: absolute;
-    top:0;
+    top:10;
     left:1%;
     color:rgb(255, 255, 255);
     -webkit-text-stroke: 0.5px rgb(70, 123, 255);
     text-shadow: 2px 2px 1px black;
     font-weight: bold;
+}
+#principal{
+	margin:auto;
+	width:95;
+	text-align:center;
 }
 #listas{
 	display:none;
