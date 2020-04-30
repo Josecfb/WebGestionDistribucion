@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Cliente;
 import model.negocio.GestorCliente;
+import vista.correo.EnviarCorreoSolicitudConfirmacion;
 
 /**
  * Servlet implementation class AltaCliente
@@ -46,6 +47,7 @@ public class AltaCliente extends HttpServlet {
 		cli.setTelefonoMovil(request.getParameter("movil").trim());
 		cli.setTipo(0);
 		caso=gc.nuevo(cli,pass1,pass2);
+		System.out.println("Número de cliente "+cli.getNumero());
 		String[] error= {"El nombre"+ENBLANCO,"Los apellidos"+ENBLANCO,"El nif"+ENBLANCO,"El Email"+ENBLANCO,"La direccion"+ENBLANCO,
 			"La Población"+ENBLANCO,"El código postal"+ENBLANCO,"Las contraseñas son diferentes","La contraseña"+ENBLANCO,
 			"Error de conexión","El Email ya existe"};
@@ -53,9 +55,10 @@ public class AltaCliente extends HttpServlet {
 			if(caso[i])
 				error[i]="";
 		if (caso[11]) {
-			request.setAttribute("mensaje", "Enhorabuena usted se ha registrado correctamente correctamente");
+			request.setAttribute("mensaje", "Enhorabuena usted se ha registrado correctamente correctamente. Recibirá un Email para confirmar de su correo.");
 			request.getRequestDispatcher("Principal").forward(request, response);
-			
+			System.out.println(cli.getEmail()+" "+cli.getNumero());
+			new EnviarCorreoSolicitudConfirmacion(cli.getEmail(), cli.getNumero());
 		}
 		else {
 			request.setAttribute("error", error); //pasa el array con los mensajes de los errores

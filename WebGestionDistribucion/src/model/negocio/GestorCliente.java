@@ -52,4 +52,12 @@ public class GestorCliente {
 		
 		 return ok;
 	}
+	
+	public boolean confirmado(int num) {
+		return dc.confirmado(num);
+	}
+	
+	public Cliente buscaEmailPassword(String email,String password) {
+		return dc.buscaEmailPassword(email, password);
+	}
 }

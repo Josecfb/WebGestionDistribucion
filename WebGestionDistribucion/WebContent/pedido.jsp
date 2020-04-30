@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Gestión distribución</title>
-<script src="js/principal.js"></script>
+<script src="js/pedido.js"></script>
 <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
 </head>
 <body>

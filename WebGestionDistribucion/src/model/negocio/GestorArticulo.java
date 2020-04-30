@@ -3,6 +3,7 @@ package model.negocio;
 import java.util.List;
 
 import model.Articulo;
+import model.Cliente;
 import model.Familia;
 import model.persistencia.DaoArticulo;
 
@@ -19,5 +20,9 @@ public class GestorArticulo {
 	
 	public List<Familia> listaFamilias(){
 		return da.listaFamilias();
+	}
+	
+	public List<Object[]> preciosArticulos(Cliente cli){
+		return da.preciosArticulos(cli);
 	}
 }

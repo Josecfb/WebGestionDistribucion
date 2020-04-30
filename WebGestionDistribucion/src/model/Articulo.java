@@ -48,6 +48,9 @@ public class Articulo implements Serializable {
 	
 	@Column(name="ENPEDIDO")
 	private boolean enPedido;
+	
+	@Column(name="RESERVADOS")
+	private int reservados;
 
 	//bi-directional many-to-one association to Familia
 	@ManyToOne
@@ -151,6 +154,14 @@ public class Articulo implements Serializable {
 
 	public void setFamiliaBean(Familia familiaBean) {
 		this.familiaBean = familiaBean;
+	}
+
+	public int getReservados() {
+		return reservados;
+	}
+
+	public void setReservados(int reservados) {
+		this.reservados = reservados;
 	}
 
 	public List<FilasPedidosCliente> getFilasPedidosClientes() {

@@ -15,8 +15,7 @@
     	<a href="Principal"><button class="botonm">Home</button></a>
         <a href="ControladorListadoProductos"><button class="botonm">Pedidos</button></a>
         <a href="alta.jsp"><button class="botonactivo">Registro</button></a>
-        <a href="buscar.jsp"><button class="botonm">Modificar</button></a>
-        <a href="eliminar.jsp"><button class="botonm">Eliminar</button></a>
+        <a href="iniciosesion.jsp"><button class="botonm">Iniciar Sesión</button></a>
 	</nav>
 	<h1>Registro nuevo usuario</h1>
 	<form action="AltaCliente" method="post" accept-charset="utf-8">
