@@ -41,21 +41,33 @@ public class DaoArticulo {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Object[]> preciosArticulos(Cliente cli){
+	public List<Object[]> preciosArticulos(Cliente cli,String filtro){
+		System.out.println("FILTRO "+filtro);
 		List<Object[]> lista;
 		em=ab.abrirConexion();
 		if (em==null)
 			return null;
-		String consulta="select art.cod, art.nombre, "
+		String consulta;
+		if (filtro!=null) {
+			consulta="select art.cod, art.nombre, "
 				+ "case when pre.clienteBean=:clie then pre.precio else null end, "	
 				+ "case when :tipo=0 then "
 						+ "art.precioMinorista "
 					+ "else art.precioMayorista end, "
 				+ "art.stock-art.reservados "
-
-				
-				+ "from Articulo art left join PreciosCliente pre on art=pre.articuloBean";
-		lista=em.createQuery(consulta).setParameter("tipo", cli.getTipo()).setParameter("clie", cli).getResultList();
+				+ "from Articulo art left join PreciosCliente pre on art=pre.articuloBean where art.nombre like '%:filtro%'";
+			lista=em.createQuery(consulta).setParameter("tipo", cli.getTipo()).setParameter("clie", cli).setParameter("filtro", filtro).getResultList();
+		}
+		else {
+			consulta="select art.cod, art.nombre, "
+					+ "case when pre.clienteBean=:clie then pre.precio else null end, "	
+					+ "case when :tipo=0 then "
+							+ "art.precioMinorista "
+						+ "else art.precioMayorista end, "
+					+ "art.stock-art.reservados "
+					+ "from Articulo art left join PreciosCliente pre on art=pre.articuloBean";
+			lista=em.createQuery(consulta).setParameter("tipo", cli.getTipo()).setParameter("clie", cli).getResultList();
+		}
 		ab.cerrarConexion();
 		return lista;
 	}

@@ -34,16 +34,30 @@ public class Pedidos extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		GestorArticulo ga=new GestorArticulo();
 		List<Object[]> artis=new ArrayList<Object[]>();
-		Cliente cli=(Cliente) request.getAttribute("cli");
-		artis=ga.preciosArticulos(cli);
+		Cliente cli=null;
+		try {
+		cli=(Cliente) request.getAttribute("cli");
+		}catch (NullPointerException e) {
+			request.getRequestDispatcher("iniciosesion.jsp").forward(request, response);
+			return;
+		}
+		String filtro;
+		try {
+		filtro=request.getParameter("filtro");
+		}catch(IllegalStateException e) {
+			filtro="";
+		}
+		if (cli==null) request.getRequestDispatcher("iniciosesion.jsp").forward(request, response);
+		artis=ga.preciosArticulos(cli,filtro);
 		List<String> artPedido=new ArrayList<String>();
 		for (Object[] arti:artis) {
 			if (arti[2]==null) arti[2]=arti[3];
+			if (arti[2].toString().split("\\.")[1].length()==1) arti[2]+="0";
 			artPedido.add(arti[0]+";"+arti[1]+";"+arti[2]+";"+arti[4]);
-			System.out.println(arti[0]+" "+arti[1]+" "+arti[2]+" "+arti[4]);
-			
 		}
-		System.out.println(cli.getNombre());
+		request.setAttribute("cli", cli);
+		request.setAttribute("artpedido", artPedido);
+		request.getRequestDispatcher("pedido.jsp").forward(request, response);
 	}
 
 	/**

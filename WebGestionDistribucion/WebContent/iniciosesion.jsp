@@ -11,9 +11,9 @@
 <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
 </head>
 <body>
-	<nav id="menu">
+	<nav class="menu">
     	<a href="Principal"><button class="botonm">Home</button></a>
-        <a href="ControladorListadoProductos"><button class="botonm">Pedidos</button></a>
+        <a href="Pedidos"><button class="botonm">Pedidos</button></a>
         <a href="registro.jsp"><button class="botonm">Registro</button></a>
         <a href="buscar.jsp"><button class="botonactivo">Iniciar Sesión</button></a>
 	</nav>

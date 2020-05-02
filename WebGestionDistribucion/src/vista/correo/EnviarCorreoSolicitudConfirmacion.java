@@ -57,7 +57,7 @@ public class EnviarCorreoSolicitudConfirmacion implements Runnable{
 	            mensaje.setSubject("Confirme su correo");
 	            mensaje.setContent(web,"text/html; charset=utf-8");
 	            Transport t = session.getTransport("smtp");
-	            t.connect("cursillos2002@gmail.com", "#Mis2Perro$");
+	            t.connect("cursillos2002@gmail.com", decodif("%pssfQ3tjN$"));
 	            t.sendMessage(mensaje, mensaje.getAllRecipients());
 	            t.close();
 			} catch (MessagingException e) {

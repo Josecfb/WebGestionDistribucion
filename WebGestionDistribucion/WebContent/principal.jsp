@@ -10,15 +10,15 @@
 <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
 </head>
 <body>
-	<nav id="menu">
+	<nav class="menu">
     	  <button class="botonactivo">Home</button>
-        <a href="ControladorListadoProductos"><button class="botonm">Pedidos</button></a>
+        <a href="Pedidos"><button class="botonm">Pedidos</button></a>
         <a href="registro.jsp"><button class="botonm">Registro</button></a>
         <a href="iniciosesion.jsp"><button class="botonm">Iniciar Sesión</button></a>
 	</nav>
 	<h1>Gestion Distribución</h1>
 	<p id="mensaje">${mensaje}</p>
-	<div id="listas">
+	<div class="listas">
 		<ul>
 		<c:forEach items="${articulos}" var="articulo">
 			<li class="nombre${articulo.familiaBean.num}">${articulo.nombre};${articulo.cod}</li>

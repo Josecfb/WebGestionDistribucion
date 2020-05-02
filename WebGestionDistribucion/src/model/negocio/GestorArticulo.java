@@ -22,7 +22,7 @@ public class GestorArticulo {
 		return da.listaFamilias();
 	}
 	
-	public List<Object[]> preciosArticulos(Cliente cli){
-		return da.preciosArticulos(cli);
+	public List<Object[]> preciosArticulos(Cliente cli,String filtro){
+		return da.preciosArticulos(cli,filtro);
 	}
 }
