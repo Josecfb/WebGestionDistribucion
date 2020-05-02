@@ -16,13 +16,21 @@
         <a href="registro.jsp"><button class="botonm">Registro</button></a>
         <a href="iniciosesion.jsp"><button class="botonm">Iniciar Sesión</button></a>
 	</nav>
-	<h1>Gestion Distribución</h1>
-	<p>${cli.nombre}</p>
-	<form>
-	<input type="text" class="campo" name="filtro" id="btfiltro">
-	<input type="button"  class="botonm" value="Buscar" id="tfiltro"> 
+	<table id="tbusca">
+		<tr>
+			<td>
+			<form>
+				<input type="text" class="campo" name="filtro" id="tfiltro">
+				<input type="button"  class="botonm" value="Buscar" id="btfiltro"> 
+				
+			</form>
+			</td>
+			<td><p>${cli.nombre}</p></td>
+			<td><p>Articulos en pedido</p></td>
+		</tr>
+	</table>
 	
-	</form>
+	
 	<div class="listas">
 		<ul>
 		<c:forEach items="${artpedido}" var="articulo">
@@ -47,7 +55,7 @@
 		
 	    <div class="contenedorart">
 	    	<table>
-	    		<tr><td colspan="2"><p class="nombreart"></p></td></tr>
+	    		<tr><td colspan="2"><h3 class="nombreart"></h3></td></tr>
 		        <tr><td class="colizq"><img class="imagenart"></td><td class="colder"><p class="precio"></p><p class="stock"></p></td></tr>
 		        <tr><td colspan="2">
 		        	<form>
@@ -55,8 +63,8 @@
 
 	
 			        	<input class="campoo" type="number" name="codart">
-			        	Cantidad: <input class="campoc" type="number" name="cantidad" ><br>
-			        	<input type="button" width="200px" class="botonm" value="pedir" id='<%=i%>'>
+			        	Cantidad: <input class="campoc" type="number" name="cantidad" >
+			        	<input type="button" width="200px" class="botonp" value="pedir" id='<%=i%>'>
 			        	<br><span class="error"></span>
 			        	<%i++; %>
 
