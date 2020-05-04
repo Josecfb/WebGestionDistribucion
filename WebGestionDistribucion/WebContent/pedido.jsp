@@ -16,17 +16,14 @@
         <a href="registro.jsp"><button class="botonm">Registro</button></a>
         <a href="iniciosesion.jsp"><button class="botonm">Iniciar Sesión</button></a>
 	</nav>
-	<table id="tbusca">
+	<table id="tbusca" class="tablaform">
 		<tr>
 			<td>
-			<form>
 				<input type="text" class="campo" name="filtro" id="tfiltro">
 				<input type="button"  class="botonm" value="Buscar" id="btfiltro"> 
-				
-			</form>
 			</td>
-			<td><p>${cli.nombre}</p></td>
-			<td><p>Articulos en pedido</p></td>
+			<td class="colderecha"><img alt="" src="img/usuario.png"></td><td class="corder">${cli.nombre}</td>
+			<td class="colderecha"><input type="button" id="benpedido"  value=" en pedido"><input type="button" id="bseguir" value="Añadir mas artículos"></td>
 		</tr>
 	</table>
 	
@@ -39,44 +36,48 @@
 		</ul>
 	</div>
 	
-	<div class="listas">
-		<form action="CreaPedido" method="post" accept-charset="utf-8">
-			<table id="tablapedido">
-				
-			</table>
-		</form>
-		
-	</div>
+	
 	
 	<div id="principal">
 	<%int i=0; %>
 	<p id="totalfilas" class="listas">${artpedido.size()}</p>
+	
 	<c:forEach items="${artpedido}" var="articulo">
-		
 	    <div class="contenedorart">
 	    	<table>
 	    		<tr><td colspan="2"><h3 class="nombreart"></h3></td></tr>
 		        <tr><td class="colizq"><img class="imagenart"></td><td class="colder"><p class="precio"></p><p class="stock"></p></td></tr>
 		        <tr><td colspan="2">
-		        	<form>
-
-
-	
-			        	<input class="campoo" type="number" name="codart">
-			        	Cantidad: <input class="campoc" type="number" name="cantidad" >
-			        	<input type="button" width="200px" class="botonp" value="pedir" id='<%=i%>'>
-			        	<br><span class="error"></span>
-			        	<%i++; %>
-
-		
-		        	</form>
+		        	<input class="campoo" type="number" name="codart">
+		        	Cantidad: <input class="campoc" type="number" name="cantidad" >
+		        	<input type="button" width="200px" class="botonp" value="pedir" id='<%=i%>'>
+		        	<br><span class="error"></span><span class="aviso"></span>
+		        	
+		        	<%i++; %>
 		        </td></tr>
 	        </table>
 	    </div>
 	</c:forEach>
 	</div>
-	<div class="menu" id="pags">
-
+	
+	<div id="verpedido">
+		<h1>Artículos en el pedido actual</h1>
+		<table id="pedido">
+		<tr><th>Código</th><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr>
+		</table>
+		<div>
+			
+			
+			<form action="CreaPedido" method="post" accept-charset="utf-8">
+				<div class="listas">
+				<input type="text" name="numcli" value="${cli.numero}">
+				<input type="text" name="filaspedido" id="filaspedido">
+				</div>
+				
+				<input type="submit" class="botonm" id="btramitar" value="Tramitar pedido">
+			</form>
+			
+		</div>
 	</div>
 	
 </body>

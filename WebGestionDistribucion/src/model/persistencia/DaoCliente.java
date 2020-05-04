@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 
 import model.Cliente;
-import model.Familia;
 import model.persistencia.AbreCierra;
 
 public class DaoCliente {
@@ -85,5 +84,12 @@ public class DaoCliente {
 		em.getTransaction().commit();
 		em.close();
 	}
-
+	public Cliente buscaCliente(int numero) {
+		em=ab.abrirConexion();
+		if (em==null)
+			return null;
+		Cliente cli=em.find(Cliente.class, numero);
+		em.close();
+		return cli;
+	}
 }

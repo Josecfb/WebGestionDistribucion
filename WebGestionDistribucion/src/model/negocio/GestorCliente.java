@@ -60,4 +60,8 @@ public class GestorCliente {
 	public Cliente buscaEmailPassword(String email,String password) {
 		return dc.buscaEmailPassword(email, password);
 	}
+	
+	public Cliente buscaCliente(int numero) {
+		return dc.buscaCliente(numero);
+	}
 }

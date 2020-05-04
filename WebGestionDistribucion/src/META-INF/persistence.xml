@@ -8,7 +8,7 @@
 		<class>model.Familia</class>
 		<class>model.FilasPedidosCliente</class>
 		<class>model.FilasPedidosClientePK</class>
-		<class>model.PedidosCliente</class>
+		<class>model.PedidoCliente</class>
 		<class>model.PreciosCliente</class>
 		<class>model.PreciosClientePK</class>
 		<properties>

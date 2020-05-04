@@ -2,10 +2,15 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-span{
+.error{
 	color:red;
-	font-size:9px;
+	font-size:10px;
 }
+.aviso{
+	color:green;
+	font-size:10px;
+}
+
 h2{
 	color:blue;
 	text-align: center;
@@ -25,8 +30,8 @@ h1{
 .contenedorart{
 	width:80%;
 }
-table,#tbusca{
-	width:100%;
+table,#tbusca,.tablaform{
+	width:90%;
 	border-spacing: 10px 20px;
     border-collapse: separate;
 	margin:auto;
@@ -37,7 +42,10 @@ table,#tbusca{
 #tbusca{
 	width:90%;
 }
-
+.tablaform{
+	width:50%;
+	vertical-align:middle;
+}
 .td1 {
 	text-align: right;
     width: 80px;
@@ -55,10 +63,10 @@ td{
 	text-align:center;
 	width:90%;
 	margin-bottom: 10px;
-	background: -webkit-linear-gradient(top, #cedce7 0%,#a1bac4 100%);
+	background: -webkit-linear-gradient(top, #cceeff 0%,#ffffff 100%);
 }
 
-.botonm,.botonp{
+.botonm,.botonp,#benpedido,#bseguir{
 	font-size: 14px;
 	font-weight: bold;
 	border-radius:20px;
@@ -68,6 +76,17 @@ td{
 	margin:2px;
 	padding:10px;
 	
+}
+th{
+	text-align: left;
+}
+
+#benpedido,#bseguir{
+	width: 200px;
+}
+#verpedido{
+	width:60%;
+	margin:auto;
 }
 .botonp{
 	width:100px;
@@ -144,7 +163,7 @@ td{
     border-radius: 20px 20px 20px 20px;
 }
 .imagenart{
-	width: 400px;
+	width: 350px;
     box-shadow: 10px 10px 10px rgb(80, 80, 80);
     border-radius: 20px 20px 20px 20px;
 }
@@ -157,14 +176,22 @@ td{
     text-shadow: 2px 2px 1px black;
     font-weight: bold;
 }
+.error,.aviso{
+	position:absolute;
+	buttom:0px;
+	width:100%;
+	left:0%;
+	text-align: center;
+}
 #principal{
 	margin:auto;
 	width:95;
 	text-align:center;
 }
-.listas,.campoo{
+.listas,.campoo,#verpedido,#bseguir{
 	display:none;
 }
+
 h1{
     text-align: center;
     color:rgb(77, 77, 240);
@@ -187,6 +214,9 @@ h1{
 .colizq{
 	width: 200px;
 	text-align: center;
+}
+.colderecha{
+	text-align: right;
 }
 #mensaje{
 	display:none;

@@ -19,7 +19,7 @@
 	</nav>
 	<h1>Registro nuevo usuario</h1>
 	<form action="AltaCliente" method="post" accept-charset="utf-8">
-		<table>
+		<table class="tablaform">
 			<tr>
 				<td class="td1">Nombre:</td><td> <input type="text" class="campo" name="nombre" value="${cli.nombre}" maxlength="20"/><br/><span>${error[0]}</span></td>
 				<td class="td1">Apellidos:</td><td><input type="text" class="campo" name="apellidos" maxlength="20" value="${cli.apellidos}"/><br/><span>${error[1]}</span></td>

@@ -20,7 +20,7 @@
 	<h1>Iniciar sesión</h1>
 	<p id="mensaje">${mensaje}</p>
 	<form action="InicioSesion" method="post" accept-charset="utf-8">
-		<table>
+		<table class="tablaform">
 			<tr>
 				<td class="td1">Email:</td><td> <input type="text" class="campo" name="email" maxlength="30"/><br/><span>${error[0]}</span></td>
 				<td class="td1">Contraseña:</td><td><input type="password" class="campo" name="password" maxlength="20"/><br/><span>${error[1]}</span></td>

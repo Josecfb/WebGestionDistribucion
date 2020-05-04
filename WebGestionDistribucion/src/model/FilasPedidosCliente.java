@@ -2,9 +2,6 @@ package model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
-
-
 /**
  * The persistent class for the FILAS_PEDIDOS_CLIENTE database table.
  * 
@@ -22,12 +19,12 @@ public class FilasPedidosCliente implements Serializable {
 	private int cantidad;
 
 	@Column(name="PRECIO")
-	private BigDecimal precio;
+	private double precio;
 
 	//bi-directional many-to-one association to PedidosCliente
 	@ManyToOne
 	@JoinColumn(name="PEDIDO")
-	private PedidosCliente pedidosCliente;
+	private PedidoCliente pedidosCliente;
 
 	//bi-directional many-to-one association to Articulo
 	@ManyToOne
@@ -53,19 +50,19 @@ public class FilasPedidosCliente implements Serializable {
 		this.cantidad = cantidad;
 	}
 
-	public BigDecimal getPrecio() {
+	public double getPrecio() {
 		return this.precio;
 	}
 
-	public void setPrecio(BigDecimal precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 
-	public PedidosCliente getPedidosCliente() {
+	public PedidoCliente getPedidosCliente() {
 		return this.pedidosCliente;
 	}
 
-	public void setPedidosCliente(PedidosCliente pedidosCliente) {
+	public void setPedidosCliente(PedidoCliente pedidosCliente) {
 		this.pedidosCliente = pedidosCliente;
 	}
 

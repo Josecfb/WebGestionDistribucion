@@ -35,7 +35,7 @@ public class AlbaranCliente implements Serializable {
 
 	//bi-directional many-to-one association to PedidosCliente
 	@OneToMany(mappedBy="albaranCliente")
-	private List<PedidosCliente> pedidosClientes;
+	private List<PedidoCliente> pedidosClientes;
 
 	public AlbaranCliente() {
 	}
@@ -72,22 +72,22 @@ public class AlbaranCliente implements Serializable {
 		this.clienteBean = clienteBean;
 	}
 
-	public List<PedidosCliente> getPedidosClientes() {
+	public List<PedidoCliente> getPedidosClientes() {
 		return this.pedidosClientes;
 	}
 
-	public void setPedidosClientes(List<PedidosCliente> pedidosClientes) {
+	public void setPedidosClientes(List<PedidoCliente> pedidosClientes) {
 		this.pedidosClientes = pedidosClientes;
 	}
 
-	public PedidosCliente addPedidosCliente(PedidosCliente pedidosCliente) {
+	public PedidoCliente addPedidosCliente(PedidoCliente pedidosCliente) {
 		getPedidosClientes().add(pedidosCliente);
 		pedidosCliente.setAlbaranCliente(this);
 
 		return pedidosCliente;
 	}
 
-	public PedidosCliente removePedidosCliente(PedidosCliente pedidosCliente) {
+	public PedidoCliente removePedidosCliente(PedidoCliente pedidosCliente) {
 		getPedidosClientes().remove(pedidosCliente);
 		pedidosCliente.setAlbaranCliente(null);
 

@@ -12,8 +12,8 @@ import java.util.List;
  */
 @Entity
 @Table(name="PEDIDOS_CLIENTE")
-@NamedQuery(name="PedidosCliente.findAll", query="SELECT p FROM PedidosCliente p")
-public class PedidosCliente implements Serializable {
+@NamedQuery(name="PedidoCliente.findAll", query="SELECT p FROM PedidoCliente p")
+public class PedidoCliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -29,7 +29,7 @@ public class PedidosCliente implements Serializable {
 	private Date fecha;
 
 	//bi-directional many-to-one association to FilasPedidosCliente
-	@OneToMany(mappedBy="pedidosCliente")
+	@OneToMany(mappedBy="pedidosCliente",cascade = CascadeType.ALL)
 	private List<FilasPedidosCliente> filasPedidosClientes;
 
 	//bi-directional many-to-one association to Cliente
@@ -42,7 +42,7 @@ public class PedidosCliente implements Serializable {
 	@JoinColumn(name="NUM_ALBARAN")
 	private AlbaranCliente albaranCliente;
 
-	public PedidosCliente() {
+	public PedidoCliente() {
 	}
 
 	public int getNum() {

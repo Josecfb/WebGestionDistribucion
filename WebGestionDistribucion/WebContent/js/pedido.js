@@ -8,8 +8,8 @@ var contenedorart=new Array();
 var pCod=new Array();
 var pPrecio=new Array();
 var pCantidad=new Array();
-var paginas;
-var pag;
+var pNom=new Array();
+var cadFilasPed="";
 
 function iniciaTodo(){
 	total=totalfilas.textContent;
@@ -22,8 +22,8 @@ function iniciaTodo(){
 	codarti=document.getElementsByClassName('campoo');
 	error=document.getElementsByClassName('error');
 	contenedorart=document.getElementsByClassName('contenedorart');
-	
-	paginas=Math.trunc(total/10)+1;
+	aviso=document.getElementsByClassName('aviso');
+
 	articulo=document.getElementsByClassName('nombre');
 	botonp=document.getElementsByClassName('botonp');
 	for (l=0;l<total;l++){
@@ -35,12 +35,18 @@ function iniciaTodo(){
 		codarti[l].value=articulo[l].textContent.split(";")[0];
 		botonp[l].addEventListener("click",agregar); 
 	}
-	for (p=1;p<=paginas;p++)
-		pags.innerHTML+="<input type='button' width='100px' class='botonp' value='"+p+"' id='"+p+"'>";
 	btfiltro.addEventListener("click",filtrar);
+	benpedido.addEventListener("click",mostrarPedido);
+	bseguir.addEventListener("click",seguir);
+	btramitar.addEventListener("click",tramitar);
+}
+
+function tramitar(){
+	
 }
 
 function filtrar(){
+	seguir();
 	console.log(total);
 	for (l=0;l<total;l++){
 		console.log(titulo[l].textContent.includes(document.getElementById('tfiltro').value));
@@ -48,37 +54,67 @@ function filtrar(){
 			console.log("oculta");
 			contenedorart[l].style.display="none";
 		}
-		else{
+		else
 			contenedorart[l].style.display="inline-block";
-		}
 	}
-	
+}
+
+function mostrarPedido(){
+	totalped=0;
+	cadFilasPed="";
+	document.getElementById('pedido').innerHTML="<tr><th>Código</th><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr>";
+	for (i=0;i<pCantidad.length;i++){
+		totalped+=pCantidad[i]*pPrecio[i];
+		document.getElementById('pedido').innerHTML+="<tr>" +
+		"<td>"+pCod[i]+"</td>" +
+		"<td>"+pNom[i]+"</td>"+
+		"<td>"+pCantidad[i]+"</td>" +
+		"<td>"+pPrecio[i]+" €</td>"+
+		"<td>"+Math.round(pCantidad[i]*pPrecio[i]*100)/100+" €</td></tr>";
+		cadFilasPed+=pCod[i]+";"+pCantidad[i]+";"+pPrecio[i]+"#";
+	}
+	document.getElementById('filaspedido').value=cadFilasPed;
+	document.getElementById('pedido').innerHTML+="<tr>" +
+			"<td colspan='3'><td>Base</td><td>"+Math.round(totalped*100)/100+" €</td></tr>";
+	document.getElementById('pedido').innerHTML+="<tr>" +
+			"<td colspan='3'><td>IVA</td><td>"+Math.round(totalped*100*0.1)/100+" €</td></tr>";
+	document.getElementById('pedido').innerHTML+="<tr>" +
+			"<td colspan='3'><td>Total</td><td>"+Math.round(totalped*100*1.1)/100+" €</td></tr>"
+	verpedido.style.display="block";
+	principal.style.display="none";
+	bseguir.style.display="block";
+	benpedido.style.display="none";
+}
+
+function seguir(){
+	verpedido.style.display="none";
+	principal.style.display="block";
+	bseguir.style.display="none";
+	benpedido.style.display="block";
 }
 
 function agregar(){
-	console.log(this.id);
-	console.log("Código: "+articulo[this.id].textContent.split(";")[0]);
-	console.log("Nombre: "+articulo[this.id].textContent.split(";")[1]);
-	console.log("Precio: "+articulo[this.id].textContent.split(";")[2]);
-	console.log("Cantidad: "+cantidad[this.id].value);
 	if (cantidad[this.id].value=="" || cantidad[this.id].value==0)
 		error[this.id].innerHTML="Selecione una cantidad";
 	else {
-		pCod.push(articulo[this.id].textContent.split(";")[0]);
-		pPrecio.push(articulo[this.id].textContent.split(";")[2]);
+		pCod.push(parseInt(articulo[this.id].textContent.split(";")[0],10));
+		pNom.push(articulo[this.id].textContent.split(";")[1]);
 		pCantidad.push(cantidad[this.id].value);
-		alert("Se han agregado "+cantidad[this.id].value+" unidades de "+articulo[this.id].textContent.split(";")[1] );
+		pPrecio.push(parseFloat(articulo[this.id].textContent.split(";")[2]));
+		
+		error[this.id].innerHTML="";
+		aviso[this.id].innerHTML="Se han agregado "+cantidad[this.id].value+" unidades de "+articulo[this.id].textContent.split(";")[1];
+		suma=0;
+		for (i=0;i<pCantidad.length;i++){
+			suma+=Number.parseInt(pCantidad[i],10);
+			
+		}
+		benpedido.value=suma+" en pedido"
+		
 	}
-	
 	cantidad[this.id].value="";
 }
 
-function creaFila(){
-	
-}
-
-
 function programa(){
     iniciaTodo();
-  
 }

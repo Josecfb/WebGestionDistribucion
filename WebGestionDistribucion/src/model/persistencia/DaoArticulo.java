@@ -71,4 +71,13 @@ public class DaoArticulo {
 		ab.cerrarConexion();
 		return lista;
 	}
+	
+	public Articulo buscaArticulo(int codigo) {
+		em=ab.abrirConexion();
+		if (em==null)
+			return null;
+		Articulo art=em.find(Articulo.class, codigo);
+		em.close();
+		return art;
+	}
 }

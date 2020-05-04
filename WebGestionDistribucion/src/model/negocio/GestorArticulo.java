@@ -25,4 +25,7 @@ public class GestorArticulo {
 	public List<Object[]> preciosArticulos(Cliente cli,String filtro){
 		return da.preciosArticulos(cli,filtro);
 	}
+	public Articulo buscaArticulo(int codigo) {
+		return da.buscaArticulo(codigo);
+	}
 }
