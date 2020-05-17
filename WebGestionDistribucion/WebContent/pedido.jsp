@@ -46,7 +46,7 @@
 	    <div class="contenedorart">
 	    	<table>
 	    		<tr><td colspan="2"><h3 class="nombreart"></h3></td></tr>
-		        <tr><td class="colizq"><img class="imagenart"></td><td class="colder"><p class="precio"></p><p class="stock"></p></td></tr>
+		        <tr><td class="colizq"><img class="imagenart"></td><td class="colder"><p class="precio"></p><p class="stock"></p><p class="veces"></p> </td></tr>
 		        <tr><td colspan="2">
 		        	<input class="campoo" type="number" name="codart">
 		        	Cantidad: <input class="campoc" type="number" name="cantidad" >

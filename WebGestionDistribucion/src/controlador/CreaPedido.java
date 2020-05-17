@@ -17,6 +17,7 @@ import model.PedidoCliente;
 import model.negocio.GestorArticulo;
 import model.negocio.GestorCliente;
 import model.negocio.GestorPedidoCliente;
+import vista.correo.EnviarCorreoConfirmacionPedido;
 
 /**
  * Servlet implementation class CreaPedido
@@ -31,8 +32,6 @@ public class CreaPedido extends HttpServlet {
 		System.out.println(request.getParameter("filaspedido"));
 		String[] filasped=request.getParameter("filaspedido").split("#");
 		System.out.println("num filas "+filasped.length);
-		for (int i=0;i<filasped.length;i++)
-			System.out.println(filasped[i]);
 		GestorCliente gc=new GestorCliente();
 		Cliente cli=gc.buscaCliente(Integer.parseInt(request.getParameter("numcli")));
 		PedidoCliente ped=new PedidoCliente();
@@ -46,12 +45,17 @@ public class CreaPedido extends HttpServlet {
 			fila=new FilasPedidosCliente();
 			fila.setArticuloBean(ga.buscaArticulo(Integer.parseInt(filaped.split(";")[0])));
 			fila.setCantidad(Integer.parseInt(filaped.split(";")[1]));
-			fila.setPrecio(Double.parseDouble(filaped.split(";")[1]));
+			fila.getArticuloBean().setReservados(fila.getArticuloBean().getReservados()+fila.getCantidad());
+			ga.actualizarArticulo(fila.getArticuloBean());
+			fila.setPrecio(Double.parseDouble(filaped.split(";")[2]));
 			fila.setPedidosCliente(ped);
 			filas.add(fila);
 		}
 		ped.setFilasPedidosClientes(filas);
 		GestorPedidoCliente gpc=new GestorPedidoCliente();
 		gpc.guardaPedido(ped);
+		new EnviarCorreoConfirmacionPedido(ped);
+		request.setAttribute("mensaje", "Enhorabuena Su pedido ha sido enviado correctamente.");
+		request.getRequestDispatcher("Principal").forward(request, response);
 	}
 }

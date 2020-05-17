@@ -22,10 +22,13 @@ public class GestorArticulo {
 		return da.listaFamilias();
 	}
 	
-	public List<Object[]> preciosArticulos(Cliente cli,String filtro){
-		return da.preciosArticulos(cli,filtro);
+	public List<Object[]> preciosArticulos(Cliente cli){
+		return da.preciosArticulos(cli);
 	}
 	public Articulo buscaArticulo(int codigo) {
 		return da.buscaArticulo(codigo);
+	}
+	public void actualizarArticulo(Articulo viejo) {
+		da.actualizaArticulo(viejo);
 	}
 }

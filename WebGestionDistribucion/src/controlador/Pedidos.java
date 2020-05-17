@@ -41,28 +41,24 @@ public class Pedidos extends HttpServlet {
 			request.getRequestDispatcher("iniciosesion.jsp").forward(request, response);
 			return;
 		}
-		String filtro;
-		try {
-		filtro=request.getParameter("filtro");
-		}catch(IllegalStateException e) {
-			filtro="";
-		}
+
 		if (cli==null) request.getRequestDispatcher("iniciosesion.jsp").forward(request, response);
-		artis=ga.preciosArticulos(cli,filtro);
+		artis=ga.preciosArticulos(cli);
 		List<String> artPedido=new ArrayList<String>();
 		for (Object[] arti:artis) {
 			if (arti[2]==null) arti[2]=arti[3];
 			if (arti[2].toString().split("\\.")[1].length()==1) arti[2]+="0";
-			artPedido.add(arti[0]+";"+arti[1]+";"+arti[2]+";"+arti[4]);
+			artPedido.add(arti[0]+";"+arti[1]+";"+arti[2]+";"+arti[4]+";"+arti[5]);
+		}
+		System.out.println("Númenro de artículos="+artis.size());
+		for (Object[] arti:artis) {
+			System.out.println(arti[0]+";"+arti[1]+";"+arti[2]+";"+arti[4]+"; sumaped"+arti[5]);
 		}
 		request.setAttribute("cli", cli);
 		request.setAttribute("artpedido", artPedido);
 		request.getRequestDispatcher("pedido.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

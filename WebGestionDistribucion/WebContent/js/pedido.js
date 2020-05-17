@@ -18,6 +18,7 @@ function iniciaTodo(){
 	titulo=document.getElementsByClassName('nombreart');
 	precio=document.getElementsByClassName('precio');
 	stock=document.getElementsByClassName('stock');
+	veces=document.getElementsByClassName('veces');
 	cantidad=document.getElementsByClassName('campoc');
 	codarti=document.getElementsByClassName('campoo');
 	error=document.getElementsByClassName('error');
@@ -31,6 +32,7 @@ function iniciaTodo(){
 		titulo[l].innerHTML=articulo[l].textContent.split(";")[1];
 		precio[l].innerHTML="Precio unitario: "+articulo[l].textContent.split(";")[2].split(".")[0]+","+articulo[l].textContent.split(";")[2].split(".")[1]+" €";
 		stock[l].innerHTML="Stock: "+articulo[l].textContent.split(";")[3];
+		if (articulo[l].textContent.split(";")[4]!="null") veces[l].innerHTML="Pedido "+articulo[l].textContent.split(";")[4]+" veces";
 		cantidad[l].max=articulo[l].textContent.split(";")[3];
 		codarti[l].value=articulo[l].textContent.split(";")[0];
 		botonp[l].addEventListener("click",agregar); 
@@ -95,20 +97,23 @@ function seguir(){
 
 function agregar(){
 	if (cantidad[this.id].value=="" || cantidad[this.id].value==0)
-		error[this.id].innerHTML="Selecione una cantidad";
-	else {
-		pCod.push(parseInt(articulo[this.id].textContent.split(";")[0],10));
-		pNom.push(articulo[this.id].textContent.split(";")[1]);
-		pCantidad.push(cantidad[this.id].value);
-		pPrecio.push(parseFloat(articulo[this.id].textContent.split(";")[2]));
-		
-		error[this.id].innerHTML="";
-		aviso[this.id].innerHTML="Se han agregado "+cantidad[this.id].value+" unidades de "+articulo[this.id].textContent.split(";")[1];
-		suma=0;
-		for (i=0;i<pCantidad.length;i++){
-			suma+=Number.parseInt(pCantidad[i],10);
+		error[this.id].innerHTML="Selecione una cantidad mayor de 0";
+	else 
+		if (cantidad[this.id]>stock[this.id].value.split(":"))
+			error[this.id].innerHTML="No puede pedir mas de "+stock[this.id].value;
+		else {
+			pCod.push(parseInt(articulo[this.id].textContent.split(";")[0],10));
+			pNom.push(articulo[this.id].textContent.split(";")[1]);
+			pCantidad.push(cantidad[this.id].value);
+			pPrecio.push(parseFloat(articulo[this.id].textContent.split(";")[2]));
 			
-		}
+			error[this.id].innerHTML="";
+			aviso[this.id].innerHTML="Se han agregado "+cantidad[this.id].value+" unidades de "+articulo[this.id].textContent.split(";")[1];
+			suma=0;
+			for (i=0;i<pCantidad.length;i++){
+				suma+=Number.parseInt(pCantidad[i],10);
+				
+			}
 		benpedido.value=suma+" en pedido"
 		
 	}

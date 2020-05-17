@@ -37,9 +37,6 @@ public class EnviarCorreoSolicitudConfirmacion implements Runnable{
 	public void run() {
 		 try {
 			 	String web="<head>"+
-			 			"<style type=\"text/css\">" +
-		                "  .campo { display: none; }" +
-		                "</style>" +
 			 			"</head>"+
 			 			"<body>"+
 			 				"<p>Pulse en el enlace para confirmar su correo</p>"+
