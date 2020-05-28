@@ -41,12 +41,6 @@ public class Cliente implements Serializable {
 	@Column(name="NOMBRE")
 	private String nombre;
 
-	@Column(name="NOMBRE_COMERCIAL")
-	private String nombreComercial;
-
-	@Column(name="NOMBRE_FISCAL")
-	private String nombreFiscal;
-
 	@Column(name="NUM_CUENTA_CONTABLE")
 	private int numCuentaContable;
 	
@@ -145,22 +139,6 @@ public class Cliente implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public String getNombreComercial() {
-		return this.nombreComercial;
-	}
-
-	public void setNombreComercial(String nombreComercial) {
-		this.nombreComercial = nombreComercial;
-	}
-
-	public String getNombreFiscal() {
-		return this.nombreFiscal;
-	}
-
-	public void setNombreFiscal(String nombreFiscal) {
-		this.nombreFiscal = nombreFiscal;
 	}
 
 	public int getNumCuentaContable() {

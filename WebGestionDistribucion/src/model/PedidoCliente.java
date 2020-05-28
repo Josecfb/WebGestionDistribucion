@@ -21,8 +21,8 @@ public class PedidoCliente implements Serializable {
 	@Column(name="NUM")
 	private int num;
 
-	@Column(name="CONFIRMADO")
-	private byte confirmado;
+	@Column(name="ENVIADO")
+	private boolean enviado;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="FECHA")
@@ -53,12 +53,12 @@ public class PedidoCliente implements Serializable {
 		this.num = num;
 	}
 
-	public byte getConfirmado() {
-		return this.confirmado;
+	public boolean getEnviado() {
+		return this.enviado;
 	}
 
-	public void setConfirmado(byte confirmado) {
-		this.confirmado = confirmado;
+	public void setEnviado(boolean enviado) {
+		this.enviado = enviado;
 	}
 
 	public Date getFecha() {

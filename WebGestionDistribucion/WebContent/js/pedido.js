@@ -96,11 +96,12 @@ function seguir(){
 }
 
 function agregar(){
+	console.log(parseInt(articulo[this.id].textContent.split(";")[3],10));
 	if (cantidad[this.id].value=="" || cantidad[this.id].value==0)
 		error[this.id].innerHTML="Selecione una cantidad mayor de 0";
 	else 
-		if (cantidad[this.id]>stock[this.id].value.split(":"))
-			error[this.id].innerHTML="No puede pedir mas de "+stock[this.id].value;
+		if (cantidad[this.id].value>parseInt(articulo[this.id].textContent.split(";")[3],10))
+			error[this.id].innerHTML="No puede pedir mas de "+articulo[this.id].textContent.split(";")[3];
 		else {
 			pCod.push(parseInt(articulo[this.id].textContent.split(";")[0],10));
 			pNom.push(articulo[this.id].textContent.split(";")[1]);
