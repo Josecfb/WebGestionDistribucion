@@ -1,3 +1,6 @@
+/**
+ * Controla los sliders de la página principal
+ */
 window.addEventListener("load",programa);
 var imagen=new Array();
 var titulo=new Array();

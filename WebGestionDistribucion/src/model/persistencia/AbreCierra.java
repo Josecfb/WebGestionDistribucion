@@ -11,8 +11,8 @@ public class AbreCierra {
 	private EntityManager em;
 	
 	/**
-	 * 
-	 * @return true->conexion abierta false->error al conectar
+	 * Abre la conexión con la base de datos
+	 * @return objeto EntityManager
 	 */
 	public EntityManager abrirConexion() {
 		try {
@@ -31,7 +31,7 @@ public class AbreCierra {
 	
 	/**
 	 * Cierra la conexión
-	 * @return true->conexion cerrada false->error al cerrar la conexión 
+	 * @return true conexion cerrada false error al cerrar la conexión 
 	 */
 	public boolean cerrarConexion() {
 		try {

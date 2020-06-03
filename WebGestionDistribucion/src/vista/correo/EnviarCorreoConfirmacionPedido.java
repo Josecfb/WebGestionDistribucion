@@ -15,7 +15,11 @@ import javax.mail.internet.MimeMessage;
 
 import model.FilasPedidosCliente;
 import model.PedidoCliente;
-
+/**
+ * Correo al cliente con la confirmación del pedido
+ * @author Jose Carlos
+ *
+ */
 public class EnviarCorreoConfirmacionPedido implements Runnable{
 	private Properties props;
 	private Session session;
@@ -23,7 +27,10 @@ public class EnviarCorreoConfirmacionPedido implements Runnable{
 	private PedidoCliente ped;
 	private NumberFormat formatoEuro = NumberFormat.getCurrencyInstance();
 	private DateFormat formatoFecha;
-	
+	/**
+	 * El constructor recibe un objeto PedidoCliente
+	 * @param ped objeto PedidoCliente
+	 */
 	public EnviarCorreoConfirmacionPedido(PedidoCliente ped) {
 		formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
 		this.para=ped.getClienteBean().getEmail();
@@ -42,7 +49,9 @@ public class EnviarCorreoConfirmacionPedido implements Runnable{
        
 	    
 	}
-
+	/**
+	 * Hilo que envia el correo
+	 */
 	@Override
 	public void run() {
 		String web="<head>"+

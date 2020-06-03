@@ -12,7 +12,7 @@ import model.negocio.GestorCliente;
 import vista.correo.EnviarCorreoSolicitudConfirmacion;
 
 /**
- * Servlet implementation class AltaCliente
+ * Controla el alta de cliente, recibe los datos desde el formulario de registro.jsp
  */
 @WebServlet("/AltaCliente")
 public class AltaCliente extends HttpServlet {

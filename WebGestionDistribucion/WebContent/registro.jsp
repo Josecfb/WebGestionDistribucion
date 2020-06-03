@@ -7,7 +7,6 @@
 <meta charset="utf-8">
  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Gestión distribución</title>
-<script src="js/codigo.js"></script>
 <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
 </head>
 <body>

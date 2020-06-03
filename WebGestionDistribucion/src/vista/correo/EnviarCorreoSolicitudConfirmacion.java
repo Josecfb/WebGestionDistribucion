@@ -8,13 +8,21 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-
+/**
+ * Correo solicitando confirmación email
+ * @author Jose Carlos
+ *
+ */
 public class EnviarCorreoSolicitudConfirmacion implements Runnable{
 	private Properties props;
 	private Session session;
 	private String para;
 	private int num;
-	
+	/**
+	 * El constructor recibe la direccion de correo y el número de cliente
+	 * @param para cadena con direccion de correo
+	 * @param num Número de cliente
+	 */
 	public EnviarCorreoSolicitudConfirmacion(String para,int num) {
 		this.para=para;
 		this.num=(String.valueOf(num)+para).hashCode();

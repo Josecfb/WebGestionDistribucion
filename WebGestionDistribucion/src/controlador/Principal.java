@@ -14,7 +14,11 @@ import model.Articulo;
 import model.Familia;
 import model.negocio.GestorArticulo;
 
-
+/**
+ * Envia la lista de artículos y familias a la página principal.jsp
+ * @author Jose Carlos
+ *
+ */
 @WebServlet("/Principal")
 public class Principal extends HttpServlet {
 	private static final long serialVersionUID = 1L;

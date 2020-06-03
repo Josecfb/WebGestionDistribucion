@@ -11,7 +11,7 @@ import model.Cliente;
 import model.negocio.GestorCliente;
 
 /**
- * Servlet implementation class InicioSesion
+ * Gestiona el inicio de sesión de un cliente recibe los datos de iniciosesion.jsp
  */
 @WebServlet("/InicioSesion")
 public class InicioSesion extends HttpServlet {

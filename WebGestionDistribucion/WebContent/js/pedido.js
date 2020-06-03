@@ -1,3 +1,6 @@
+/**
+ * Destiona tramitación de pedido pedido
+ */
 window.addEventListener("load",programa);
 var imagen=new Array();
 var titulo=new Array();

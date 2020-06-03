@@ -8,15 +8,24 @@ import model.Articulo;
 import model.Cliente;
 import model.Familia;
 import model.persistencia.AbreCierra;
-
+/**
+ * Gestiona la persistencia de Articulo
+ * @author Jose Carlos
+ *
+ */
 public class DaoArticulo {
 	private EntityManager em;
 	private AbreCierra ab;
-	
+	/**
+	 * El constructor crea un objeto AbreCierra
+	 */
 	public DaoArticulo() {
 		ab=new AbreCierra();
 	}
-	
+	/**
+	 * Obtiene la lista de todos los artículos
+	 * @return List de Articulo
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Articulo> listaArticulos(){
 		List<Articulo> lista;
@@ -27,7 +36,10 @@ public class DaoArticulo {
 		ab.cerrarConexion();
 		return lista;
 	}
-	
+	/**
+	 * Obtiene la lista de todas las familias de Artículos
+	 * @return List de Familia
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Familia> listaFamilias(){
 		List<Familia> lista;
@@ -38,7 +50,11 @@ public class DaoArticulo {
 		ab.cerrarConexion();
 		return lista;
 	}
-	
+	/**
+	 * Obtiene el codigo, nombre, precio, stock-reservados, suma de cantidades pedidas por parte del cliente de todos los artículos
+	 * @param cli Objeto Cliente
+	 * @return List de array de Object
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Object[]> preciosArticulos(Cliente cli){
 		List<Object[]> lista;
@@ -55,10 +71,13 @@ public class DaoArticulo {
 				+ "from Articulo art order by 6 desc";
 		lista=em.createQuery(consulta).setParameter("tipo", cli.getTipo()).setParameter("clie", cli).getResultList();
 		ab.cerrarConexion();
-		System.out.println("lista en dao="+lista.size());
 		return lista;
 	}
-	
+	/**
+	 * Retorna el articulo con un determinado código
+	 * @param codigo código de artículo
+	 * @return Objeto Articulo
+	 */
 	public Articulo buscaArticulo(int codigo) {
 		em=ab.abrirConexion();
 		if (em==null)
@@ -67,7 +86,10 @@ public class DaoArticulo {
 		em.close();
 		return art;
 	}
-	
+	/**
+	 * Actualiza la cantidad de reservados de un artículo
+	 * @param viejo Objeto Articulo
+	 */
 	public void actualizaArticulo(Articulo viejo) {
 		em=ab.abrirConexion();
 		Articulo art=em.find(Articulo.class, viejo.getCod());

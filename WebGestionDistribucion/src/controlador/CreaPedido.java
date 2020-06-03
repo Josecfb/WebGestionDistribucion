@@ -20,7 +20,7 @@ import model.negocio.GestorPedidoCliente;
 import vista.correo.EnviarCorreoConfirmacionPedido;
 
 /**
- * Servlet implementation class CreaPedido
+ * Gestiona el pedido del cliente recibiendo los datos desde pedido.jsp
  */
 @WebServlet("/CreaPedido")
 public class CreaPedido extends HttpServlet {

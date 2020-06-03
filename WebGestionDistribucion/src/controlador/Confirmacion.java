@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.negocio.GestorCliente;
 
 /**
- * Servlet implementation class Confirmacion
+ * Gestiona la confirmacion del correo del cliente despues de darse de alta
  */
 @WebServlet("/Confirmacion")
 public class Confirmacion extends HttpServlet {
@@ -30,7 +30,6 @@ public class Confirmacion extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String num=request.getParameter("num");
 		GestorCliente gc=new GestorCliente();
-		System.out.println("hash "+Integer.parseInt(num));
 		if (gc.confirmado(Integer.parseInt(num)))
 			request.setAttribute("mensaje", "Enhorabuena Su correo electrónico ha sido confirmado correctamente.");
 			request.getRequestDispatcher("iniciosesion.jsp").forward(request, response);

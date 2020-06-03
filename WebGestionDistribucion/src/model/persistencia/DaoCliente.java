@@ -7,18 +7,24 @@ import javax.persistence.NoResultException;
 
 import model.Cliente;
 import model.persistencia.AbreCierra;
-
+/**
+ * Gestiona la persistencia de Cliente
+ * @author Jose Carlos
+ *
+ */
 public class DaoCliente {
 	private EntityManager em;
 	private AbreCierra ab;
-	
+	/** 
+	 * El constructor crea un objeto AbreCierra
+	 */
 	public DaoCliente() {
 		ab=new AbreCierra();
 	}
 
 	/**
-	 * 
-	 * @param cli Cliente
+	 * Persiste un cliente nuevo si no está con el mismo email
+	 * @param cli Cliente Objeto Cliente
 	 * @return -1 sin conexión -2 existe correo 0 ok
 	 */
 	public int nuevo(Cliente cli) {
@@ -34,8 +40,8 @@ public class DaoCliente {
 		return 0;
 	}
 	/**
-	 * 
-	 * @param eMail
+	 * Comprueba si existe cliente con el mismo email
+	 * @param eMail Cadena con el email
 	 * @return true correo ya existe false correo no existe
 	 */
 	public boolean existeEmail(String eMail) {
@@ -44,7 +50,12 @@ public class DaoCliente {
 			return false;
 		else return true;
 	}
-	
+	/**
+	 * Busca cliente con un email y password
+	 * @param email cadena con el email
+	 * @param password  Cadena con el password
+	 * @return Objeto Cliente
+	 */
 	public Cliente buscaEmailPassword(String email,String password) {
 		int pass=password.hashCode();
 		em=ab.abrirConexion();
@@ -57,7 +68,11 @@ public class DaoCliente {
 		ab.cerrarConexion();
 		return cli;
 	}
-
+	/**
+	 * Retorna si el cliente ha sido confirmado su correo
+	 * @param hash hashcode del numero de cliente + correo
+	 * @return true o false
+	 */
 	@SuppressWarnings("unchecked")
 	public boolean confirmado(int hash) {
 		List<Cliente> lista;
@@ -66,15 +81,17 @@ public class DaoCliente {
 			return false;
 		lista=em.createQuery("SELECT cli FROM Cliente cli").getResultList();
 		ab.cerrarConexion();
-		for (Cliente cli:lista) {
-			System.out.println(((cli.getNumero())+cli.getEmail()).hashCode()+" comparado con "+hash);
+		for (Cliente cli:lista) 
 			if((String.valueOf(cli.getNumero())+cli.getEmail()).hashCode()==hash){
 					confirma(cli.getNumero());
 					return true;
 			}
-		}
 		return false;
 	}
+	/**
+	 * Actualiza el campo confirmado del cliente a verdadero
+	 * @param num número de cliente
+	 */
 	private void confirma(int num) {
 		em=ab.abrirConexion();
 		em.getTransaction().begin();
@@ -84,6 +101,11 @@ public class DaoCliente {
 		em.getTransaction().commit();
 		em.close();
 	}
+	/**
+	 * Busca un cliente por su número
+	 * @param numero número de cliente
+	 * @return Objeto Cliente
+	 */
 	public Cliente buscaCliente(int numero) {
 		em=ab.abrirConexion();
 		if (em==null)

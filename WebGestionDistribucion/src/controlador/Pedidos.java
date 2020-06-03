@@ -14,7 +14,7 @@ import model.Cliente;
 import model.negocio.GestorArticulo;
 
 /**
- * Servlet implementation class Pedidos
+ * Gestiona la web de pedidos pasando los articulos con los precios correspondientes segun el cliente
  */
 @WebServlet("/Pedidos")
 public class Pedidos extends HttpServlet {
@@ -50,7 +50,7 @@ public class Pedidos extends HttpServlet {
 			if (arti[2].toString().split("\\.")[1].length()==1) arti[2]+="0";
 			artPedido.add(arti[0]+";"+arti[1]+";"+arti[2]+";"+arti[4]+";"+arti[5]);
 		}
-		System.out.println("Númenro de artículos="+artis.size());
+
 		for (Object[] arti:artis) {
 			System.out.println(arti[0]+";"+arti[1]+";"+arti[2]+";"+arti[4]+"; sumaped"+arti[5]);
 		}
