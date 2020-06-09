@@ -57,14 +57,18 @@ public class DaoCliente {
 	 * @return Objeto Cliente
 	 */
 	public Cliente buscaEmailPassword(String email,String password) {
+		System.out.println(email+" "+password.hashCode());
 		int pass=password.hashCode();
 		em=ab.abrirConexion();
 		Cliente cli;
 		try {
 		cli=(Cliente) em.createQuery("SELECT cli from Cliente cli where cli.email=:email and cli.contrasena=:pass").setParameter("email", email).setParameter("pass", pass).getSingleResult();
+		System.out.println(cli.getNombre());
 		}catch(NoResultException e) {
+			System.out.println("nulo");
 			return null;
 		}
+		System.out.println(cli.getNombre());
 		ab.cerrarConexion();
 		return cli;
 	}

@@ -28,6 +28,7 @@ public class InicioSesion extends HttpServlet {
 		GestorCliente gc=new GestorCliente();
 		if (ok[0] && ok[1]) {
 			cli=gc.buscaEmailPassword(request.getParameter("email").trim(), request.getParameter("password"));
+			System.out.println(request.getParameter("email").trim()+" "+ request.getParameter("password"));
 			if (cli!=null) {
 				request.setAttribute("cli", cli);
 				request.getRequestDispatcher("Pedidos").forward(request, response);

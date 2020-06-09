@@ -22,7 +22,7 @@
 				<input type="text" class="campo" name="filtro" id="tfiltro">
 				<input type="button"  class="botonm" value="Buscar" id="btfiltro"> 
 			</td>
-			<td class="colderecha"><img alt="" src="img/usuario.png"></td><td class="corder">${cli.nombre}</td>
+			<td class="colderecha"><img alt="" src="img/usuario.png"></td><td class="corder">${cli.nombre} ${cli.apellidos}</td>
 			<td class="colderecha"><input type="button" id="benpedido"  value=" en pedido"><input type="button" id="bseguir" value="Añadir mas artículos"></td>
 		</tr>
 	</table>

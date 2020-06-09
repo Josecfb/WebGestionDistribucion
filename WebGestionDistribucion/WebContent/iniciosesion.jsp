@@ -26,7 +26,7 @@
 				<td class="td1">Contraseña:</td><td><input type="password" class="campo" name="password" maxlength="20"/><br/><span>${error[1]}</span></td>
 			</tr>
 			<tr>
-				<td colspan="2" ALIGN="right"><input type="submit" value="ALTA" class="botonm" style="width:100px"/></td>
+				<td colspan="2" ALIGN="right"><input type="submit" value="INICIAR" class="botonm" style="width:100px"/></td>
 				<td colspan="2" ><input type="reset" value="LIMPIAR" class="botonm" id="borrar" style="width:100px"/></td>
 			</tr>
 			<tr><td><p> </p></td></tr>
