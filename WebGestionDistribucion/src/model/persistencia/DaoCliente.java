@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 
-import model.Cliente;
+import entidades.Cliente;
 import model.persistencia.AbreCierra;
 /**
  * Gestiona la persistencia de Cliente

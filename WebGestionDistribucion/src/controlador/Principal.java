@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Articulo;
-import model.Familia;
+import entidades.Articulo;
+import entidades.Familia;
 import model.negocio.GestorArticulo;
 
 /**

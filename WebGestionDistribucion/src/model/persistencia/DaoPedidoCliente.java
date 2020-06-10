@@ -2,7 +2,7 @@ package model.persistencia;
 
 import javax.persistence.EntityManager;
 
-import model.PedidoCliente;
+import entidades.PedidoCliente;
 /**
  * Gestiona la persistencia de PedidoCliente 
  * @author Jose Carlos

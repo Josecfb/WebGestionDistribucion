@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Cliente;
-import model.FilasPedidosCliente;
-import model.PedidoCliente;
+import entidades.Cliente;
+import entidades.FilasPedidosCliente;
+import entidades.PedidoCliente;
 import model.negocio.GestorArticulo;
 import model.negocio.GestorCliente;
 import model.negocio.GestorPedidoCliente;

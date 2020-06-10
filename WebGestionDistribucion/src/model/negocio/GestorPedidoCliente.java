@@ -1,6 +1,6 @@
 package model.negocio;
 
-import model.PedidoCliente;
+import entidades.PedidoCliente;
 import model.persistencia.DaoPedidoCliente;
 /**
  * Clase gestora de pedido de cliente

@@ -13,8 +13,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import model.FilasPedidosCliente;
-import model.PedidoCliente;
+import entidades.FilasPedidosCliente;
+import entidades.PedidoCliente;
 /**
  * Correo al cliente con la confirmación del pedido
  * @author Jose Carlos

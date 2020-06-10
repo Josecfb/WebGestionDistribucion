@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import model.Articulo;
-import model.Cliente;
-import model.Familia;
+import entidades.Articulo;
+import entidades.Cliente;
+import entidades.Familia;
 import model.persistencia.AbreCierra;
 /**
  * Gestiona la persistencia de Articulo

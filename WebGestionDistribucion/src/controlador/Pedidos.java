@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Cliente;
+import entidades.Cliente;
 import model.negocio.GestorArticulo;
 
 /**
@@ -51,9 +51,7 @@ public class Pedidos extends HttpServlet {
 			artPedido.add(arti[0]+";"+arti[1]+";"+arti[2]+";"+arti[4]+";"+arti[5]);
 		}
 
-		for (Object[] arti:artis) {
-			System.out.println(arti[0]+";"+arti[1]+";"+arti[2]+";"+arti[4]+"; sumaped"+arti[5]);
-		}
+
 		request.setAttribute("cli", cli);
 		request.setAttribute("artpedido", artPedido);
 		request.getRequestDispatcher("pedido.jsp").forward(request, response);

@@ -2,9 +2,9 @@ package model.negocio;
 
 import java.util.List;
 
-import model.Articulo;
-import model.Cliente;
-import model.Familia;
+import entidades.Articulo;
+import entidades.Cliente;
+import entidades.Familia;
 import model.persistencia.DaoArticulo;
 /**
  * Clase gestora de artículos

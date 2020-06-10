@@ -1,5 +1,5 @@
 /**
- * Destiona tramitación de pedido pedido
+ * Gestiona tramitación de pedido pedido
  */
 window.addEventListener("load",programa);
 var imagen=new Array();
