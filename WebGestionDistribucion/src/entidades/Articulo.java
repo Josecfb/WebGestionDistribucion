@@ -45,10 +45,7 @@ public class Articulo implements Serializable {
 
 	@Column(name="UNIDADES_CAJA")
 	private int unidadesCaja;
-	
-	@Column(name="ENPEDIDO")
-	private boolean enPedido;
-	
+
 	@Column(name="RESERVADOS")
 	private int reservados;
 
